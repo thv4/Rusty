@@ -1,3 +1,4 @@
+use env_logger;
 use serde::Deserialize;
 use serenity::all::{
     CreateAttachment, CreateEmbed, CreateEmbedFooter, CreateMessage, Ready, Timestamp,
@@ -101,6 +102,7 @@ struct Config {
 
 #[tokio::main]
 async fn main() {
+    env_logger::init();
     // Leer el archivo de configuración
     let config_data =
         fs::read_to_string("config.toml").expect("No se pudo leer el archivo de configuración");
